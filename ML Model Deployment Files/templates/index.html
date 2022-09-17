@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Overall Emission</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="year" placeholder="year" required="required" />
+        <input type="text" name="Jet_Fuel_avi_BTU" placeholder="Jet Fuel" required="required" />
+		<input type="text" name="Gasoline_avi_BTU" placeholder="Gasoline" required="required" />
+		<input type="text" name="LDV_SWB_road_BTU" placeholder="LDV SWB road" required="required" />
+		<input type="text" name="LDV_LWB_road_BTU" placeholder="LDV LWB road" required="required" />
+		<input type="text" name="Combination_Truck_road_BTU" placeholder="Combination Truck road" required="required" />
+		<input type="text" name="Bus_Road_BTU" placeholder="Bus Road" required="required" />
+		<input type="text" name="Passenger_Car_EFF" placeholder="Passenger Car EFF" required="required" />
+		<input type="text" name="Passenger_Car_Age" placeholder="Passenger Car Age" required="required" />
+		<input type="text" name="Demand_Petro" placeholder="Demand_Petro" required="required" />
+		<input type="text" name="Avg_MC" placeholder="Avg_MC" required="required" />
+		<input type="text" name="CO2_emission_million_metric_tons" placeholder="CO2 emission" required="required" />
+		<input type="text" name="CO_emission_million_shots_tons" placeholder="CO emission" required="required" />
+		<input type="text" name="NOx_emission_million_shots_tons" placeholder="NOx emission" required="required" />
+		<input type="text" name="SOx_emission_million_shots_tons" placeholder="SOx emission" required="required" />
+		<input type="text" name="Volatile_compound_million_shots_tons" placeholder="Volatile compound" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
